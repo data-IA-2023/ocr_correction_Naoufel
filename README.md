@@ -8,3 +8,12 @@
 **DISCORD_OCR**:intégration discord
 
 
+# COMMANDES DOCKER
+
+**creation docker**:docker build -t NAME .
+
+**imagedocker**:docker run -p 3000:3000 -e MYVAR=XXX -e (variable d'environnement=Value) --name NAME NAME
+
+**dockerimageencour**:docker images
+
+
