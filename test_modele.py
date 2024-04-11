@@ -48,9 +48,7 @@ def test_1():
         assert len(res)==2
 
 def test_import():
-    if path.exists("guru99.txt")==True:
-        pass
-    else:
+    if  path.exists("statics")==False:
         os.mkdir("statics")
     with open('statics/FAC_2019_0502-521676.png.txt', 'w') as f:
         f.write('''INVOICE FAC_2019_0502
