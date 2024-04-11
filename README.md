@@ -16,4 +16,6 @@
 
 **dockerimageencour**:docker images
 
+**supprimer une image**:docker rm NAME
+
 
