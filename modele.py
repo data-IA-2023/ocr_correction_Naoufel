@@ -67,11 +67,13 @@ class Facture(Base):
                     liste_produce =[]
                     adress = None
                     cumul_total = 0
+                    dico_données["adr"] = None
                     for id,element in enumerate(contenu_facture):
                         if element.startswith("TOTAL"):
-                            dico_données["total"] = float(element.split(" ")[1])
+                            element_sans_virgule = element.replace(",",".")
+                            dico_données["total"] = float(element_sans_virgule.split(" ")[1])
                             print("total",dico_données["total"])
-                        if element.startswith("Address"):
+                        if element.startswith("Address") or element.startswith("‘Address"):
                             if adress == None:
                                 dico_données["adr"] = element.split(" ",1)[1]+" "+contenu_facture[id+1]
                                 print("adr",dico_données["adr"])
@@ -120,7 +122,7 @@ class Facture(Base):
                     session.commit()
                 session.add(fac)
                 session.commit()
-            return fac # facture créee à partir des info des TXT
+            return  # facture créee à partir des info des TXT
 
     
     

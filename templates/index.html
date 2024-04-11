@@ -4,6 +4,14 @@
     </header>
     <body>
         <h1>OCR, correction</h1>
-        <div>{{a}}</div>
+        <div>{%for row in res %}
+            <p>
+            {{row[0]}}
+            </p>
+             {%endfor%}
+ 
+
+
+            </div>
     </body>
 </html>
