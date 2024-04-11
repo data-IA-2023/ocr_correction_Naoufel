@@ -7,6 +7,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select, update, delete
 #sqlalchemy.exc.IntegrityError
 import sqlalchemy, pytest
+import os.path
+from os import path
 
 def test_0():
     '''
@@ -46,7 +48,11 @@ def test_1():
         assert len(res)==2
 
 def test_import():
-    with open('static/FAC_2019_0502-521676.png.txt', 'w') as f:
+    if path.exists("guru99.txt")==True:
+        pass
+    else:
+        os.mkdir("statics")
+    with open('statics/FAC_2019_0502-521676.png.txt', 'w') as f:
         f.write('''INVOICE FAC_2019_0502
 Issue date 2019-06-01 19:02:00
 Bill to Natalia Omma
@@ -61,7 +67,7 @@ Story onto everybody east. 2x 59,73 Euro
 
 TOTAL 564.27 Euro
 ''')
-    with open('static/FAC_2019_0502-521676.pngqr.txt', 'w') as f:
+    with open('statics/FAC_2019_0502-521676.pngqr.txt', 'w') as f:
         f.write('''INVOICE:FAC_2019_0502
 DATE:2019-06-01 19:02:00
 CUST:00337
